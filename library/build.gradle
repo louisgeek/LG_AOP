@@ -4,6 +4,16 @@ plugins {
     id 'maven-publish'
 }
 
+//新版的各种配置方式，针对 jitpack.io 的生成不生效
+//仍旧生成 com/github/louisgeek/LG_VideoChat/1.0.0/LG_VideoChat-1.0.0.aar
+//
+//默认不指定
+//.m2/repository/LG_VideoChat/chat/unspecified/chat-unspecified.aar
+//全局指定group version
+//.m2/repository/com/github/louisgeek/chat/1.0.11/chat-1.0.11.aar
+group='com.github.louisgeek'
+version = '1.1.1'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -29,6 +39,29 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
+
+// Because the components are created only during the afterEvaluate phase, you must
+// configure your publications using the afterEvaluate() lifecycle method.
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                //局部自定义
+                //.m2/repository/com/louisgeek/chat_lib/1.2/chat_lib-1.2.aar
+                groupId = 'com.louisgeek'
+                artifactId = 'aop'
+                version = '1.0.0'
+            }
+        }
+    }
+}
+
 
 dependencies {
 
