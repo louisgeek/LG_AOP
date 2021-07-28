@@ -36,7 +36,7 @@ public class CheckNetworkAspect {
         }
         String tip = checkNetwork.tip();
         if (TextUtils.isEmpty(tip)) {
-            tip = "未连接网络";
+            tip = "网络连接异常";
         }
         if (NetworkTool.isConnected(context)) {
             Log.e(TAG, "aroundCheckNetwork: 网络已连接 ");
