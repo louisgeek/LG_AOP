@@ -1,5 +1,4 @@
-# LG_AOP
-
+# LG_AOP_AspectJ
 
 
 1 project gradle 
@@ -45,7 +44,7 @@ plugins {
 
 
 
-4 module gradle [![](https://jitpack.io/v/louisgeek/LG_AOP.svg)](https://jitpack.io/#louisgeek/LG_AOP)
+4 module gradle [![](https://jitpack.io/v/louisgeek/LG_AOP_AspectJ.svg)](https://jitpack.io/#louisgeek/LG_AOP_AspectJ)
 
 ```groovy
 dependencies {
@@ -57,7 +56,7 @@ dependencies {
 
 
 
-ä½¿ç”¨
+Ê¹ÓÃ
 
 ```java
 id_tv_ccc.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +67,9 @@ id_tv_ccc.setOnClickListener(new View.OnClickListener() {
          }
 });
 //
-  @CheckNetwork(tip = "æ— ç½‘ç»œ")
+  @CheckNetwork(tip = "ÎÞÍøÂç")
     private void sss() {
         Log.e(TAG, "sss: ");
 //        Toast.makeText(this, "sss", Toast.LENGTH_SHORT).show();
 }
 ```
-
